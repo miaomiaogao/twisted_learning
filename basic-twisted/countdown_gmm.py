@@ -1,5 +1,3 @@
-from twisted.internet import reactor
-
 class Countdown(object):
     # while True:
     #     try: 
@@ -62,7 +60,8 @@ class Countdown(object):
     #         self.count3()
 
 print 'Start!'
-   
+
+from twisted.internet import reactor   
 reactor.callWhenRunning(Countdown().count)
 
 reactor.run()
