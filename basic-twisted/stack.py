@@ -6,4 +6,6 @@ def stack():
 
 from twisted.internet import reactor
 reactor.callWhenRunning(stack)
+
+print "start running:"
 reactor.run()
