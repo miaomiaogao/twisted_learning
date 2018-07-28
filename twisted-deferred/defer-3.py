@@ -15,4 +15,4 @@ d = Deferred()
 d.addCallbacks(got_poem, poem_failed)
 
 # fire the chain with an error result
-d.errback(Exception('I have failed.'))
+d.errback(Exception('I have failed.')) #a deferred will turn ordinary Exceptions into Failures for us. 

@@ -55,8 +55,11 @@ d.pause()
 d.callback(0)
 
 print 'Adding callbacks.'
+print 'Adding first callback.'
 d.addCallback(callback_1)
+print 'Adding second callback.'
 d.addCallback(callback_2)
+print 'Adding third callback.'
 d.addCallback(callback_3)
 
 print 'Unpausing the deferred.'

@@ -7,6 +7,8 @@ def got_poem(res):
 
 def poem_failed(err):
     print 'No poetry for you.'
+    print err.__class__
+    print err
 
 d = Deferred()
 

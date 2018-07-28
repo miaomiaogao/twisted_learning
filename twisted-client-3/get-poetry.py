@@ -2,7 +2,7 @@
 
 # NOTE: This should not be used as the basis for production code.
 
-import optparse
+import optparse, traceback, os
 
 from twisted.internet.protocol import Protocol, ClientFactory
 
