@@ -103,7 +103,9 @@ def poetry_main():
 
     def got_poem(poem):
         traceback.print_stack()
-        os._exit(0)
+        print 'continue...'
+        poems.append(poem)
+        # os._exit(0)
 
     def poem_failed(err):
         print >>sys.stderr, 'Poem failed:', err

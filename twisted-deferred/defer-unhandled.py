@@ -1,7 +1,9 @@
 from twisted.internet.defer import Deferred
 
 def callback(res):
+    print res
     raise Exception('oops')
+    
 
 d = Deferred()
 

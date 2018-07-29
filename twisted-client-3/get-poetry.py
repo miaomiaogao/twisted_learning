@@ -82,7 +82,7 @@ def get_poetry(host, port, callback):
 
     when the poem is complete.
     """
-    from twisted.internet import reactor
+    from twisted.internet import reactordd
     factory = PoetryClientFactory(callback)
     reactor.connectTCP(host, port, factory)
 

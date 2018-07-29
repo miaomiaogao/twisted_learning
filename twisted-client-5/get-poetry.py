@@ -1,6 +1,6 @@
 # This is the Twisted Get Poetry Now! client, version 5.0
 
-import optparse, random, sys
+import optparse, random, sys, traceback
 
 from twisted.internet import defer
 from twisted.internet.protocol import Protocol, ClientFactory
@@ -113,8 +113,9 @@ def cummingsify(poem):
     def bug():
         raise ValueError()
 
-    return random.choice([success, gibberish, bug])()
-
+    #return random.choice([success, gibberish, bug])()
+    #return gibberish()
+    return bug()
 
 def poetry_main():
     addresses = parse_args()
@@ -131,7 +132,9 @@ def poetry_main():
             raise
         except:
             print 'Cummingsify failed!'
+            # raise     #only can reach one of [raise,return]
             return poem
+
 
     def got_poem(poem):
         print poem
@@ -140,6 +143,7 @@ def poetry_main():
     def poem_failed(err):
         print >>sys.stderr, 'The poem download failed.'
         errors.append(err)
+        print err
 
     def poem_done(_):
         if len(poems) + len(errors) == len(addresses):
@@ -151,6 +155,7 @@ def poetry_main():
         d.addCallback(try_to_cummingsify)
         d.addCallbacks(got_poem, poem_failed)
         d.addBoth(poem_done)
+        
 
     reactor.run()
 
